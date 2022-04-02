@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 th:if="${gameResults.empty}">No Games Found</h1>
+        <table border="1">
+            <div th:each="g: ${gameResults}">
+                <tr>
+                    <td rowspan="2">
+                        <img th:src="${g.backgroundImage}" height="auto" width="250">
+                    </td>
+                    <td>
+                        Title: <code th:text="${g.name}"></code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Rating: <code th:text="${g.rating}"></code>
+                    </td>
+                </tr>
+            </div>
+            <tr>
+                <td colspan="2">
+                    <button onclick="location.href = '/'">Back</button>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
